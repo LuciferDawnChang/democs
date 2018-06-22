@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test1"></div>
+<div id="test2"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+    //创建names数组和用于放li标签内容的数组
+    var names = ["悟空","八戒","老沙"];
+    var lis =[];
+    // 创建DOM元素
+
+//    遍历names数组将每项值放入li标签里放进数组
+
+//    names.forEach((name,index)=>{
+//        lis.push(<li key={index}>{name}</li>);
+//    });
+
+////    遍历添加
+//    names.forEach((name,index)=>lis.push(<li key={index}>{name}</li>));
+//
+////        将li放进ul标签内
+//    var ul = <ul>{...lis}</ul>;
+//    .map添加,将names数组的每一项name参数作出指定修改后返回,放入ul标签
+    var ul= <ul>{names.map((name,index)=><li key={index}>{name}</li>)};}
+    </ul>;
+    // 渲染虚拟DOM到页面真实DOM容器中
+    // ReactDOM的方法.插入(插入节点内容,插入位置)
+    ReactDOM.render(ul,document.getElementById("test1"));
+</script>
+</body>
+</html>

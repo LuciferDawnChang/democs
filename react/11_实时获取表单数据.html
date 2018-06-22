@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example"></div>
+<!--react组件化变成框架主程序-->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!--react-dom操作组件-->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!--prop-types变量类型检查组件-->
+<!--<script type="text/javascript" src="../js/prop-types.js"></script>-->
+<!--兼容、语法转换,将s6语法转为s5-->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+
+    //定义组件
+    //    import CommentAdd from "../../react全家桶/code/react_demo/src-comment/components/comment-add/comment-add";
+
+    class App extends React.Component {
+
+        constructor (props) {
+            super(props);
+            // 初始化状态
+            this.state = {
+                userName : "",
+                pas : ""
+            }
+        }
+        login=(e)=>{
+            e=e||window.event;
+            e.preventDefault();
+//            console.log(this.refs.userName.value , this.refs.pas.value)
+            const{userName , pas}=this.state;
+            console.log(this.state);
+            console.log(userName , pas);
+        };
+        handleNameChang=(e)=>{
+            let userName = e.target.value;
+//            console.log(this.refs.userName.value);
+//            console.log(e.target.value);
+            console.log(userName);
+            this.setState ({
+                userName
+            })
+        };
+        handlePasChang=(e)=>{
+            let pas = e.target.value;
+//            console.log(this.refs.pas.value);
+//            console.log(e.target.value);
+            console.log(pas);
+            this.setState ({
+                pas
+            })
+        };
+        render(){
+            return(
+                    <form action="/test" method="get" onClick={this.login}>
+                        用户名:<input type="text" ref="userName" onChange={this.handleNameChang}/><br/>
+                        密&nbsp;&nbsp;码:<input type="password" ref="pas" onChange={this.handlePasChang}/><br/>
+                        <button>提交</button>
+                    </form>
+            )
+        }
+    }
+
+
+    // 渲染组件标签
+    ReactDOM.render(<App />, document.getElementById('example'))
+</script>
+</body>
+</html>

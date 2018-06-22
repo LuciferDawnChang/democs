@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test1"></div>
+<div id="test2"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/javascript">
+        var name = "zzz悟空zzz";
+        var myId = "IdWK";
+        // 原生创建DOM元素
+//                React方法.创建元素节点(h2元素标签,属性{id:值为变量myId},内容是name.大写)
+        var NameEle = React.createElement("h2",{id:myId},name.toUpperCase());
+        // 渲染虚拟DOM到页面真实DOM容器中
+//        ReactDOM的方法.插入(插入节点内容,插入位置)
+        ReactDOM.render(NameEle,document.getElementById("test1"));
+    </script>
+
+    <script type="text/babel">
+        //        jsx创建DOM元素
+        var NameE2 = <h2 id={myId}>{name.toLowerCase()}</h2>;//jsx模式需要script的tapy为text/bable
+        ReactDOM.render(NameE2,document.getElementById("test2"));
+
+
+    </script>
+
+</body>
+</html>
